@@ -13,6 +13,11 @@
   --color-grey-8: #f8f9fa;
   --color-grey-9: #fdfeff;
 
+  --weight-1: 700;
+  --weight-2: 600;
+
+  --margin-1: 20px;
+
   --color-disable-fixed: #212529;
   --color-actived-fixed: #2b2f33;
   --color-white-fixed: #ffffff;

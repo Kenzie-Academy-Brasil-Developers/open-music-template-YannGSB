@@ -1,20 +1,45 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Open Music</title>
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="./src/styles/reset.css" />
-    <link rel="stylesheet" href="./src/styles/globalStyles.css" />
-    <link rel="stylesheet" href="./src/styles/index.css" />
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Open Music</title>
 
-    <!-- SCRIPTS  -->
-  </head>
-  <body>
-    <header></header>
-    <main></main>
-  </body>
+  <!-- CSS -->
+  <link rel="stylesheet" href="./src/styles/reset.css" />
+  <link rel="stylesheet" href="./src/styles/globalStyles.css" />
+  <link rel="stylesheet" href="./src/styles/index.css" />
+
+  <!-- SCRIPTS  -->
+</head>
+
+<body>
+  <header class="header">
+    <h1 class="header__title">open music</h1>
+    <button class="header__btn">dark mode</button>
+  </header>
+  <main>
+    <section class="filter">
+      <div class="filter__container">
+        <h2 class="filter__genreTitle">Gênero Musical</h2>
+        <ul class="filter__btnContainer">
+        </ul>
+      </div>
+      <div class="filter__inputContainer">
+        <h2 class="filter__priceTitle">Definir Preço</h2>
+        <p class="filter__priceParagraph">Até R$ ...</p>
+        <input type="range" name="filter__range" class="filter__range" min="0" max="100">
+      </div>
+    </section>
+
+    <section class="cards">
+      <h2 class="cards__title">Álbuns Encontrados</h2>
+      <ul class="cards__container"></ul>
+    </section>
+  </main>
+  <script type="module" src="./src/scripts/index.js"></script>
+</body>
+
 </html>
