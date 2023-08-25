@@ -11,6 +11,7 @@
 .header__title {
   font-size: var(--font-1);
   font-weight: var(--weight-1);
+  color: var(--color-grey-1);
 }
 
 .header__btn {
@@ -19,6 +20,12 @@
   border-radius: var(--radius-1);
   background-color: var(--color-grey-8);
   cursor: pointer;
+  color: var(--button-grey-1);
+}
+
+.header__btn:hover {
+  background-color: var(--color-grey-0);
+  color: var(--color-grey-9);
 }
 
 .filter {
@@ -30,6 +37,7 @@
   font-weight: var(--weight-1);
   font-size: var(--font-2);
   margin-bottom: 1rem;
+  color: var(--title-grey-1);
 }
 
 .filter__btnContainer {
@@ -50,6 +58,12 @@
   cursor: pointer;
   justify-content: center;
   align-items: center;
+  color: var(--button-grey-1);
+}
+
+.filter__btnImg {
+  width: 15px;
+  height: 15px;
 }
 
 .filter__btn:hover {
@@ -69,23 +83,25 @@
   font-weight: var(--weight-1);
   font-size: var(--font-2);
   margin-bottom: 2rem;
+  color: var(--title-grey-1);
 }
 
 .filter__priceParagraph {
   text-align: right;
   width: 50%;
+  color: var(--title-grey-1);
 }
 
 .filter__range {
   width: 100%;
- appearance: none;
- background: white;
+  appearance: none;
+  background-color: var(--color-grey-9);
 }
 
 .filter__range::-webkit-slider-runnable-track {
   appearance: none;
   cursor: pointer;
- background-color: var(--color-brand-1);
+  background-color: var(--color-brand-1);
   border-radius: 50px;
   height: 8px;
 }
@@ -96,7 +112,7 @@
   height: 20px;
   width: 20px;
   border-radius: 50px;
-  background: #FFFFFF;
+  background: var(--color-white-fixed);
   margin-top: -6px;
 }
 
@@ -108,6 +124,7 @@
 .cards__title {
   font-weight: var(--weight-1);
   margin-bottom: 2rem;
+  color: var(--title-grey-1);
 }
 
 .cards__container {
@@ -139,11 +156,13 @@
   margin-left: var(--margin-1);
   margin-top: var(--margin-1);
   margin-right: var(--margin-1);
+  color: var(--button-grey-1);
 }
 
 .cards__spanYear {
   font-size: var(--font-3);
   margin-top: var(--margin-1);
+  color: var(--button-grey-1);
 }
 
 .cards__albumTitle {
@@ -151,6 +170,7 @@
   font-size: var(--font-2);
   margin-top: var(--margin-1);
   margin-left: var(--margin-1);
+  color: var(--color-grey-1);
 }
 
 .cards__priceSpan {
@@ -163,6 +183,7 @@
   font-weight: var(--weight-2);
   margin-left: var(--margin-1);
   margin-top: 9px;
+  color: var(--color-grey-1);
 }
 
 .cards__purchaseBtn {
@@ -172,9 +193,30 @@
   border: none;
   margin-right: var(--margin-1);
   cursor: pointer;
+  color: var(--button-grey-1);
 }
 
 .cards__purchaseBtn:hover {
   background-color: var(--color-grey-0);
   color: var(--color-grey-9);
+}
+
+.dark__mode {
+  .header__btn:hover {
+    color: var(--color-grey-0);
+    border: 2px solid var(--color-grey-0);
+    background-color: var(--color-grey-8);
+  }
+
+  .filter__btn:hover {
+    color: var(--color-grey-0);
+    border: 2px solid var(--color-grey-0);
+    background-color: var(--color-grey-8);
+  }
+
+  .cards__purchaseBtn:hover {
+    color: var(--color-grey-0);
+    border: 2px solid var(--color-grey-0);
+    background-color: var(--color-grey-8);
+  }
 }

@@ -13,9 +13,11 @@
   --color-grey-8: #f8f9fa;
   --color-grey-9: #fdfeff;
 
+  --title-grey-1: #212529;
+  --button-grey-1: #2B2F33;
+
   --weight-1: 700;
   --weight-2: 600;
-
   --margin-1: 20px;
 
   --color-disable-fixed: #212529;
@@ -29,7 +31,7 @@
   --radius-1: 0.25rem;
 }
 
-.dark-mode:root {
+.dark__mode:root {
   --color-brand-1: #9747ff;
   --color-grey-9: #15171a;
   --color-grey-8: #212529;
@@ -41,6 +43,9 @@
   --color-grey-2: #f1f3f5;
   --color-grey-1: #f8f9fa;
   --color-grey-0: #fdfeff;
+
+  --title-grey-1: #ADB5BD;
+  --button-grey-1: #868E96;
 
   --color-disable-fixed: #212529;
   --color-actived-fixed: #2b2f33;

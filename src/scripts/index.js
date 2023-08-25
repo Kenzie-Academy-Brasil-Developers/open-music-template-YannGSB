@@ -106,6 +106,37 @@ const filterByCategory = (categorias, produtos) => {
   });
 };
 
+const handleDarkMode = () => {
+  const button = document.querySelector(".header__btn");
+  const html = document.querySelector("html");
+
+  button.addEventListener("click", () => {
+    html.classList.toggle("dark__mode");
+    if (html.classList.contains("dark__mode")) {
+      localStorage.setItem("darkMode", true);
+      iconDarkMode.src = "../src/assets/img/sun.svg";
+    } else {
+      localStorage.setItem("darkMode", false);
+      iconDarkMode.src = "../src/assets/img/moon.svg";
+    }
+  });
+  const darkModeBoolean = JSON.parse(localStorage.getItem("darkMode"));
+  const iconDarkMode = document.createElement("img");
+  iconDarkMode.alt = "Dark mode on/off";
+  iconDarkMode.classList.add("filter__btnImg");
+  button.appendChild(iconDarkMode);
+
+  if (darkModeBoolean) {
+    iconDarkMode.src = "../src/assets/img/sun.svg";
+    html.classList.add("dark__mode");
+    localStorage.setItem("darkMode", true);
+  } else {
+    iconDarkMode.src = "../src/assets/img/moon.svg";
+    localStorage.setItem("darkMode", false);
+  }
+};
+
 createCards(products);
 createButtons(categories);
 filterByCategory(categories, products);
+handleDarkMode();
