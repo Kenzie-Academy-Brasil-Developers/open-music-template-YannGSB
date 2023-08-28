@@ -2,55 +2,57 @@
 
 import { products, categories } from "./productsData.js";
 
-const createCards = (array) => {
+const createCards = (array, value = 200) => {
   const cardsContainer = document.querySelector(".cards__container");
 
   cardsContainer.innerHTML = "";
 
   array.forEach(({ title, price, band, year, img }) => {
-    const container = document.createElement("div");
-    container.classList.add("cards__renderedCardContainer");
-    cardsContainer.appendChild(container);
-
-    const image = document.createElement("img");
-    image.classList.add("cards__img");
-    image.src = img;
-    image.alt = `Capa do album "${title}"`;
-    container.appendChild(image);
-
-    const paraInfo = document.createElement("p");
-    paraInfo.classList.add("cards__bandInfo");
-    container.appendChild(paraInfo);
-
-    const spanName = document.createElement("span");
-    spanName.classList.add("cards__spanName");
-    spanName.innerText = band;
-    paraInfo.appendChild(spanName);
-
-    const spanYear = document.createElement("span");
-    spanYear.classList.add("cards__spanYear");
-    spanYear.innerText = year;
-    paraInfo.appendChild(spanYear);
-
-    const bandTitle = document.createElement("h2");
-    bandTitle.classList.add("cards__albumTitle");
-    bandTitle.innerText = title;
-    container.appendChild(bandTitle);
-
-    const spanPrice = document.createElement("span");
-    spanPrice.classList.add("cards__priceSpan");
-    container.appendChild(spanPrice);
-
-    const paraPrice = document.createElement("p");
-    paraPrice.classList.add("cards__albumPrice");
-    paraPrice.innerText = `R$ ${price}.00`;
-    spanPrice.appendChild(paraPrice);
-
-    const purchaseBtn = document.createElement("button");
-    purchaseBtn.classList.add("cards__purchaseBtn");
-    purchaseBtn.innerText = "Comprar";
-    purchaseBtn.type = "button";
-    spanPrice.appendChild(purchaseBtn);
+    if (price <= value) {
+      const container = document.createElement("div");
+      container.classList.add("cards__renderedCardContainer");
+      cardsContainer.appendChild(container);
+  
+      const image = document.createElement("img");
+      image.classList.add("cards__img");
+      image.src = img;
+      image.alt = `Capa do album "${title}"`;
+      container.appendChild(image);
+  
+      const paraInfo = document.createElement("p");
+      paraInfo.classList.add("cards__bandInfo");
+      container.appendChild(paraInfo);
+  
+      const spanName = document.createElement("span");
+      spanName.classList.add("cards__spanName");
+      spanName.innerText = band;
+      paraInfo.appendChild(spanName);
+  
+      const spanYear = document.createElement("span");
+      spanYear.classList.add("cards__spanYear");
+      spanYear.innerText = year;
+      paraInfo.appendChild(spanYear);
+  
+      const bandTitle = document.createElement("h2");
+      bandTitle.classList.add("cards__albumTitle");
+      bandTitle.innerText = title;
+      container.appendChild(bandTitle);
+  
+      const spanPrice = document.createElement("span");
+      spanPrice.classList.add("cards__priceSpan");
+      container.appendChild(spanPrice);
+  
+      const paraPrice = document.createElement("p");
+      paraPrice.classList.add("cards__albumPrice");
+      paraPrice.innerText = `R$ ${price}.00`;
+      spanPrice.appendChild(paraPrice);
+  
+      const purchaseBtn = document.createElement("button");
+      purchaseBtn.classList.add("cards__purchaseBtn");
+      purchaseBtn.innerText = "Comprar";
+      purchaseBtn.type = "button";
+      spanPrice.appendChild(purchaseBtn);
+    }
   });
 };
 
@@ -73,19 +75,19 @@ const createButtons = (array) => {
 };
 
 const filterByCategory = (categorias, produtos) => {
-  const buttons = document.querySelectorAll(".filter__btn");
 
+  let filteredProducts = products;
+  let filteredValue = 200;
+
+  const buttons = document.querySelectorAll(".filter__btn");
   const input = document.querySelector(".filter__range");
   const itemPrice = document.querySelector(".filter__priceParagraph");
 
   input.addEventListener("input", () => {
-    const arrPrice = produtos.price;
-    itemPrice.innerText = `Até R$ ${input.value}`;
-
-    const filteredByPrice = produtos.filter(
-      (produto) => produto.price <= input.value
-    );
-    createCards(filteredByPrice);
+    const inputValue = Number(input.value).toFixed(2)
+    itemPrice.innerText = `Até R$ ${inputValue}`;
+    filteredValue = inputValue;
+    createCards(filteredProducts, filteredValue);
   });
 
   buttons.forEach((button) => {
@@ -94,12 +96,13 @@ const filterByCategory = (categorias, produtos) => {
       categorias.forEach((i) => {
         const indexCategory = categorias.indexOf(i);
         if (indexButton === 0 && indexCategory === 0) {
+          filteredProducts = products
           createCards(products);
         } else if (indexCategory === indexButton) {
-          const product = produtos.filter(
+          filteredProducts = produtos.filter(
             (product) => product.category === indexCategory
           );
-          createCards(product);
+          createCards(filteredProducts, filteredValue);
         }
       });
     });

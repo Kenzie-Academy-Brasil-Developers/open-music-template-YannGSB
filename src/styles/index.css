@@ -101,7 +101,7 @@
 .filter__range::-webkit-slider-runnable-track {
   appearance: none;
   cursor: pointer;
-  background-color: var(--color-brand-1);
+  background: var(--color-brand-1);
   border-radius: 50px;
   height: 8px;
 }
